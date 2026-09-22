@@ -75,6 +75,7 @@ ul {
   font-size: 14px;
   border-radius: 1000px;
   white-space: nowrap;
+  transition: background-color 0.2s ease;
 }
 
 .btn--small {
@@ -84,6 +85,10 @@ ul {
 .btn--large {
   padding: 18px 31px;
   font-size: 17px;
+}
+
+.btn--large:hover {
+  background: var(--color-purple-accent);
 }
 
 /* ---------- Hero ---------- */
@@ -228,16 +233,120 @@ ul {
   height: auto;
 }
 
-/* ---------- Features ---------- */
-.features {
+/*
+  사용 가치 — exact Figma clone of frame "사용 가치" (1440x560).
+  Figma's own frame bound was 826 tall, but that included an off-canvas
+  decorative duplicate group (shifted -734.5px, clipped almost entirely
+  invisible); the actually-visible design is the dark 1440x559.8 band
+  (Rectangle 161124510) holding the headline + 3 cards, so the canvas
+  uses that real content height instead of the inflated frame bound.
+*/
+.value-exact {
   background: var(--color-darker);
-  line-height: 0;
+  overflow: hidden;
 }
 
-.features__img {
+.value-canvas {
+  position: relative;
+  container-type: inline-size;
   width: 100%;
-  height: auto;
+  max-width: 1920px;
+  margin: 0 auto;
+  aspect-ratio: 1440 / 826;
 }
+
+/* Frame 13 */
+.value-copy {
+  position: absolute;
+  left: 6.98cqw;
+  top: 7.65cqw;
+  width: 32.29cqw;
+}
+
+.value-eyebrow {
+  color: #999;
+  font-weight: 400;
+  font-size: clamp(11px, 0.97cqw, 14px);
+  margin-bottom: 0.9cqw;
+}
+
+.value-heading {
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: clamp(26px, 3.33cqw, 48px);
+  line-height: 1.3;
+}
+
+/* Frame 23 */
+.value-cards {
+  position: absolute;
+  left: 26.08cqw;
+  top: 23.06cqw;
+  width: 47.92cqw;
+  display: flex;
+  gap: 2.08cqw;
+}
+
+/* Frame 15/16/17 */
+.value-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.74cqw 1.74cqw 1.74cqw;
+  border-radius: 1.11cqw;
+  background: #1B1B1B;
+}
+
+.value-card-icon {
+  flex-shrink: 0;
+  width: 3.54cqw;
+  height: 3.54cqw;
+  margin-bottom: 1.67cqw;
+}
+
+.value-card-label {
+  width: 100%;
+}
+
+.value-card-title {
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: clamp(15px, 1.53cqw, 22px);
+  margin-bottom: 0.56cqw;
+}
+
+.value-card-desc {
+  color: #AAA;
+  font-weight: 400;
+  font-size: clamp(12px, 1.18cqw, 17px);
+  line-height: 1.35;
+}
+
+/*
+  Exclude (Rectangle 161124507 minus Union of Ellipse 499/500), attached
+  right below the cards. Kept at its native size relative to the 1440
+  canvas (110.3cqw wide) so it bleeds past both edges, matching how it
+  was an oversized background shape in the Figma file.
+*/
+/*
+  Two circles, each centered exactly on a bottom corner of the canvas.
+  Radius = 50cqw (half the canvas width) so they meet precisely at the
+  horizontal center — same trick as the Figma "Exclude" shape, just done
+  with plain overlapping circles instead of a boolean subtract.
+*/
+.value-ellipse {
+  position: absolute;
+  top: 100%;
+  width: 100cqw;
+  height: 38cqw; /* keeps the 1454.5:552.677 aspect ratio at 100cqw wide */
+  border-radius: 50%;
+  background: #F8F3FC;
+  transform: translate(-50%, -50%);
+}
+
+.value-ellipse--1 { left: 0; }
+.value-ellipse--2 { left: 100%; }
 
 /*
   Step 1 — exact Figma clone of frame "Step 1" (1440 wide).
