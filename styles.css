@@ -1,0 +1,897 @@
+:root {
+  --color-dark: #222;
+  --color-darker: #0A0A0A;
+  --color-purple: #A359F8;
+  --color-purple-accent: #7D2CFF;
+  --color-purple-badge: #A55AF9;
+  --color-purple-bg: #F8F3FC;
+  --color-purple-card: #1B1B1B;
+  --color-orange: #FB7902;
+  --color-white: #FFF;
+  --color-text-dark: #111;
+  --color-text-body: #555;
+  --color-text-muted: #666;
+  --color-text-light-muted: #999;
+  --color-text-quote: #777;
+  --font-base: 'Pretendard', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text-dark);
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.eyebrow {
+  color: var(--color-purple-badge);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.eyebrow--light {
+  color: var(--color-text-light-muted);
+  font-weight: 400;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.section-title--light {
+  color: var(--color-white);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-purple);
+  color: var(--color-white);
+  font-size: 14px;
+  border-radius: 1000px;
+  white-space: nowrap;
+}
+
+.btn--small {
+  padding: 10px 16px;
+}
+
+.btn--large {
+  padding: 18px 31px;
+  font-size: 17px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: var(--color-dark);
+  min-height: 780px;
+  overflow: hidden;
+  padding: 38px 100px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 33px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav__links {
+  display: flex;
+  gap: 33px;
+}
+
+.nav__link {
+  color: #E9E9E9;
+  font-size: 16px;
+}
+
+.hero__bg-text {
+  position: absolute;
+  color: rgba(142, 142, 142, 0.4);
+  font-size: 125px;
+  font-style: italic;
+  font-weight: 700;
+  opacity: 0.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero__bg-text--top {
+  left: -20px;
+  top: 30%;
+  transform: rotate(-7deg);
+}
+
+.hero__bg-text--bottom {
+  right: -60px;
+  bottom: 12%;
+  font-size: 122px;
+  transform: rotate(-7deg);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.hero__title {
+  color: var(--color-white);
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.hero__title--bold {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.logo {
+  display: block;
+  width: auto;
+}
+
+.logo--hero {
+  height: 200px;
+  margin: 24px 0 12px;
+}
+
+.hero__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+/* ---------- About ---------- */
+.about {
+  position: relative;
+  background: var(--color-purple-bg);
+  padding: 100px;
+  min-height: 780px;
+  overflow: hidden;
+}
+
+.about__text {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+
+.about__lead {
+  color: var(--color-text-body);
+  font-size: 19px;
+  margin-bottom: 24px;
+}
+
+.about__quotes {
+  margin-bottom: 24px;
+}
+
+.about__quotes li {
+  color: var(--color-text-quote);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.about__desc {
+  color: #303030;
+  font-size: 19px;
+}
+
+.about__media {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 75%;
+  max-width: 1050px;
+}
+
+.about__media img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Features ---------- */
+.features {
+  background: var(--color-darker);
+  line-height: 0;
+}
+
+.features__img {
+  width: 100%;
+  height: auto;
+}
+
+/*
+  Step 1 — exact Figma clone of frame "Step 1" (1440 wide).
+  Same technique as Step 2: every child positioned in cqw
+  (1cqw = px/1440*100), so the whole composition scales together.
+  Canvas height uses 1160 instead of the frame's own 1024 so the
+  phone card + CTA button (which sit past y1024 in Figma) aren't
+  clipped; only the decorative blob is meant to bleed off-canvas.
+*/
+.step1-exact {
+  background: var(--color-purple-bg);
+}
+
+.step1-canvas {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  aspect-ratio: 1440 / 1160;
+  overflow: hidden;
+}
+
+.step1-blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.step1-blob--orange {
+  left: 33.89cqw;
+  top: 42.01cqw;
+  width: 13.06cqw;
+  height: 13.06cqw;
+  background: var(--color-orange);
+}
+
+.step1-blob--lavender {
+  left: 34.17cqw;
+  top: 42.99cqw;
+  width: 64.58cqw;
+  height: 64.58cqw;
+  background: #ECD5FD;
+}
+
+.step1-collage {
+  position: absolute;
+  left: 84.51cqw;
+  top: 22.64cqw;
+  width: 22.94cqw;
+  height: 22.98cqw;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.step1-copy {
+  position: absolute;
+  left: 8.68cqw;
+  top: 16.47cqw;
+  width: 25.83cqw;
+}
+
+.step1-label {
+  color: var(--color-purple-accent);
+  font-weight: 700;
+  font-size: clamp(11px, 0.97cqw, 14px);
+  margin-bottom: 0.97cqw;
+}
+
+.step1-heading {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: clamp(24px, 2.92cqw, 42px);
+  line-height: 1.15;
+  margin-bottom: 1.4cqw;
+}
+
+.step1-sub {
+  color: var(--color-text-muted);
+  font-size: clamp(13px, 1.32cqw, 19px);
+  line-height: 1.55;
+}
+
+/*
+  Frame 18 — now the rotation pivot for everything on the screen, so it
+  lines up with the tilt baked into the new bezel PNG. Children below are
+  positioned relative to this box (not the canvas) and rotate as one rigid
+  unit around its center.
+*/
+.step1-screen {
+  position: absolute;
+  left: 51.5cqw;
+  top: 31.00cqw;
+  width: 30.00cqw;
+  height: 63.68cqw;
+  background: var(--color-white);
+  border-radius: 3.5cqw;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  transform: rotate(10.75deg);
+}
+
+/*
+  Frame 18 in Figma was 597.8x982.1 holding these at fixed offsets.
+  Converted to cqw (relative to the 1920 canvas) so the whole screen
+  scales fluidly with the canvas instead of staying a fixed px size.
+*/
+.step1-progress {
+  position: absolute;
+  left: 2.99cqw;
+  top: 6.94cqw;
+  width: 24.16cqw;
+  height: 0.525cqw;
+  border-radius: 7.5cqw;
+  background: #F2F2F2;
+}
+
+.step1-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16.6cqw;
+  height: 0.525cqw;
+  border-radius: 7.5cqw;
+  background: #7D2CFF;
+}
+
+.step1-question {
+  position: absolute;
+  left: 2.99cqw;
+  top: 12.36cqw;
+  width: 24.16cqw;
+  font-size: clamp(15px, 1.5cqw, 21.6px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+}
+
+/* Frame 19-23, cascading stack — later options sit lower AND in front */
+.step1-option {
+  position: absolute;
+  left: 2.99cqw;
+  width: 24.16cqw;
+  height: 4.2cqw;
+  border: none;
+  border-radius: 0.556cqw;
+  background: #F2F2F2;
+  color: #333;
+  font-family: inherit;
+  font-size: clamp(12px, 1.28cqw, 18.4px);
+  text-align: left;
+  padding-left: 0.972cqw;
+  cursor: pointer;
+}
+
+.step1-option--a { top: 15.56cqw; }
+.step1-option--b { top: 20.97cqw; }
+.step1-option--c { top: 26.39cqw; }
+.step1-option--d { top: 31.81cqw; }
+.step1-option--e { top: 37.29cqw; }
+
+.step1-option--active {
+  background: #E8E1FF;
+  color: var(--color-purple-accent);
+  border: 1px solid var(--color-purple-accent);
+}
+
+/* iPhone bezel overlays the screen exactly */
+.step1-bezel {
+  position: absolute;
+  left: 44.79cqw;
+  top: 17.99cqw;
+  width: 43.32cqw;
+  height: 70.6cqw;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/*
+  Step 2 — exact Figma clone of frame "Step 2" (1440x800).
+  Every child is positioned in cqw, where 1cqw = 1% of the canvas width.
+  Because the canvas is locked to the 1440:800 ratio, the same /1440*100
+  conversion works for x, y, width AND height, so the whole composition
+  (and its type) scales together and never drifts from the Figma layout.
+*/
+.step2-exact {
+  position: relative;
+  background: var(--color-purple-bg);
+  margin-top: -20px;
+}
+
+.step2-canvas {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  aspect-ratio: 1440 / 800;
+}
+
+.step2-copy {
+  position: absolute;
+  left: 6.94cqw;
+  top: 7.36cqw;
+  width: 26.6cqw;
+}
+
+.step2-label {
+  color: var(--color-purple-accent);
+  font-weight: 700;
+  font-size: clamp(11px, 0.97cqw, 14px);
+  margin-bottom: 0.56cqw;
+}
+
+.step2-heading {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: clamp(24px, 2.92cqw, 42px);
+  line-height: 1.15;
+  margin-bottom: 1.74cqw;
+}
+
+.step2-sub {
+  color: var(--color-text-muted);
+  font-size: clamp(13px, 1.32cqw, 19px);
+  line-height: 1.3;
+}
+
+/* Rectangle 161124518 */
+.step2-card-bg {
+  position: absolute;
+  left: 35.62cqw;
+  top: 17.86cqw;
+  width: 29.58cqw;
+  height: 30.15cqw;
+  background: var(--color-white);
+  border-radius: 1.67cqw;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: rotate(-4.5deg);
+}
+
+/* same shape as .step2-card-bg, 30px smaller, sits between it and the photo */
+.step2-card-accent {
+  position: absolute;
+  left: calc(35.62cqw + 15px);
+  top: calc(17.86cqw + 15px);
+  width: calc(29.58cqw - 30px);
+  height: calc(30.15cqw - 30px);
+  background: rgba(163, 88, 248, 0.6);
+  border-radius: 1.67cqw;
+  transform: rotate(-4.5deg);
+}
+
+/* Mask group / image 67 — same bounds as Group 1597887400 */
+.step2-photo {
+  position: absolute;
+  left: 30.76cqw;
+  top: 10.21cqw;
+  width: 37.67cqw;
+  height: 38.15cqw;
+  object-fit: contain;
+}
+
+/* Frame 38 / Frame 39 */
+.step2-tag {
+  position: absolute;
+  padding: 1.9cqw 2.03cqw;
+  border-radius: 1.11cqw;
+  background: var(--color-white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.step2-tag--now {
+  left: 29.86cqw;
+  top: 34.78cqw;
+  width: 11.65cqw;
+}
+
+.step2-tag--reme {
+  left: 57.58cqw;
+  top: 42.44cqw;
+  width: 11.66cqw;
+}
+
+.step2-tag-label {
+  font-size: clamp(11px, 0.9cqw, 13px);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.56cqw;
+}
+
+.step2-tag-label--purple {
+  color: var(--color-purple-accent);
+}
+
+.step2-tag-desc {
+  font-size: clamp(12px, 1.11cqw, 16px);
+  font-weight: 700;
+  color: #A2A2A2;
+  line-height: 1.3;
+}
+
+.step2-tag-desc--purple {
+  color: var(--color-purple);
+}
+
+/* Frame 37 */
+.step2-stats {
+  position: absolute;
+  left: 68.47cqw;
+  top: 18.96cqw;
+  width: 20.69cqw;
+  background: var(--color-white);
+  border-radius: 2.31cqw;
+  padding: 2.31cqw;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 1.34cqw;
+}
+
+.step2-stats-title {
+  font-size: clamp(15px, 1.54cqw, 22px);
+  font-weight: 700;
+  margin-bottom: 0.56cqw;
+}
+
+/* Frame 36: rows (Frame 31-35) */
+.step2-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(12px, 1.11cqw, 16px);
+}
+
+/* Frame 30 */
+.step2-stat-row i {
+  position: relative;
+  flex: none;
+  display: block;
+  font-style: normal;
+  width: 10.63cqw;
+  height: 0.83cqw;
+  border-radius: 1000px;
+  background: #D9D9D9;
+}
+
+.step2-stat-row i b {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 1000px;
+}
+
+.step2-stat-fill--purple {
+  width: 66.7%;
+  background: var(--color-purple);
+}
+
+.step2-stat-fill--orange {
+  width: 25%;
+  background: var(--color-orange);
+}
+
+/*
+  Step 3 + Step 4 — exact Figma clone of frame "Step 3" (1440x1335).
+  Same cqw technique as Step 1 / Step 2.
+*/
+.step3-exact {
+  background: var(--color-purple-bg);
+}
+
+.step3-canvas {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  aspect-ratio: 1440 / 1335;
+}
+
+/* Frame 45 (STEP 03) */
+.step3-copy--top {
+  position: absolute;
+  left: 6.94cqw;
+  top: 7.01cqw;
+  width: 26.6cqw;
+}
+
+/* Frame 49 (STEP 04) — right-aligned, right edge flush with the tag list */
+.step3-copy--bottom {
+  position: absolute;
+  left: 61.74cqw;
+  top: 46.39cqw;
+  width: 29.72cqw;
+  text-align: right;
+}
+
+.step3-label {
+  color: #999;
+  font-weight: 400;
+  font-size: clamp(11px, 0.97cqw, 14px);
+  margin-bottom: 0.83cqw;
+}
+
+.step3-heading {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: clamp(24px, 2.92cqw, 42px);
+  line-height: 1.15;
+  margin-bottom: 1.74cqw;
+}
+
+.step3-heading--sm {
+  font-size: clamp(20px, 2.5cqw, 36px);
+}
+
+.step3-sub {
+  color: var(--color-text-muted);
+  font-size: clamp(13px, 1.32cqw, 19px);
+  line-height: 1.4;
+}
+
+/* image 68 */
+.step3-photo {
+  position: absolute;
+  left: 6.94cqw;
+  top: 21.46cqw;
+  width: 43.68cqw;
+  height: 65.56cqw;
+  object-fit: cover;
+  border-radius: 1.11cqw;
+}
+
+/* Frame 40 / Frame 41 */
+.step3-bubble {
+  position: absolute;
+  padding: 1.4cqw 1.67cqw;
+  font-weight: 700;
+  line-height: 1.4;
+  background: var(--color-white);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step3-bubble--gray {
+  left: 52.29cqw;
+  top: 14.93cqw;
+  width: 17.85cqw;
+  color: #A2A2A2;
+  font-size: clamp(11px, 0.9cqw, 13px);
+  border-radius: 1.11cqw 1.11cqw 0 1.11cqw;
+}
+
+.step3-bubble--purple {
+  left: 39.17cqw;
+  top: 21.46cqw;
+  width: 22.57cqw;
+  color: var(--color-purple);
+  font-size: clamp(12px, 1.11cqw, 16px);
+  border-radius: 1.11cqw 1.11cqw 1.11cqw 0;
+}
+
+/* Frame 52 tag pills */
+.step3-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.69cqw;
+  padding: 1.11cqw 1.39cqw;
+  border-radius: 1.11cqw;
+  background: var(--color-white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+  font-size: clamp(11px, 0.97cqw, 14px);
+  color: #616161;
+  list-style: none;
+}
+
+.step3-tag svg {
+  width: 1.11cqw;
+  height: 1.11cqw;
+  min-width: 14px;
+  min-height: 14px;
+  flex-shrink: 0;
+}
+
+.step3-tag--1 { left: 77.5cqw;  top: 58.89cqw; width: 13.96cqw; }
+.step3-tag--2 { left: 76.88cqw; top: 63.54cqw; width: 14.58cqw; }
+.step3-tag--3 { left: 78.4cqw;  top: 68.19cqw; width: 13.06cqw; }
+.step3-tag--4 { left: 76.04cqw; top: 72.85cqw; width: 15.42cqw; }
+.step3-tag--5 { left: 76.04cqw; top: 77.5cqw;  width: 15.42cqw; }
+
+/* ---------- CTA ---------- */
+.cta {
+  position: relative;
+  background: #2a2a2a;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  padding: 0 100px;
+  overflow: hidden;
+}
+
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.cta__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.logo--cta {
+  height: 40px;
+}
+
+.cta__text {
+  color: var(--color-white);
+  font-size: 18px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--color-dark);
+  padding: 46px 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 40px;
+}
+
+.logo--footer {
+  height: 28px;
+}
+
+.footer__tagline {
+  color: #CCC;
+  font-size: 15px;
+  flex: 1 1 200px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer__links a {
+  color: #999;
+  font-size: 15px;
+}
+
+.footer__copyright {
+  width: 100%;
+  color: #747474;
+  font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+
+  .hero,
+  .about,
+  .cta,
+  .footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .hero__title--bold {
+    font-size: 48px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 24px 40px;
+    min-height: 600px;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: 28px;
+  }
+
+  .hero__title--bold {
+    font-size: 40px;
+  }
+
+  .logo--hero {
+    height: 56px;
+  }
+
+  .hero__subtitle {
+    font-size: 16px;
+  }
+
+  .about {
+    padding: 60px 24px;
+    min-height: 0;
+  }
+
+  .about__text {
+    max-width: 100%;
+  }
+
+  .about__media {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin: 32px -24px -60px;
+    width: calc(100% + 48px);
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .cta {
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .cta__content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer {
+    padding: 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
